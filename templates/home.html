@@ -1,0 +1,263 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriplanner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .header {
+            background: none;
+            box-shadow: none;
+        }
+
+        .nav-toggle {
+            top: 5.8rem;
+        }
+
+        .fa-times {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            display: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #65b741;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <header class="header fixed top-0 left-0 w-full flex items-center justify-between p-8 z-50 bg-transparent transition-all duration-200">
+        <a href="#" class="logo text-2xl text-white flex items-center"><i class="fas fa-tree pr-2"></i>AGRIPLANNER.</a>
+        <div class="fas fa-bars text-white text-3xl cursor-pointer md:hidden"></div>
+        <nav class="navbar hidden md:flex">
+            <ul class="flex items-center space-x-6">
+                <li><a href="#home" class="text-white text-xl hover:text-green-600 transition-all duration-200">Home</a></li>
+                <li><a href="#about" class="text-white text-xl hover:text-green-600 transition-all duration-200">About us</a></li>
+                <li><a href="#Vision" class="text-white text-xl hover:text-green-600 transition-all duration-200">Vision</a></li>
+                <li><a href="#team" class="text-white text-xl hover:text-green-600 transition-all duration-200">Team</a></li>
+                <li><a href="#contact" class="text-white text-xl hover:text-green-600 transition-all duration-200">Contact us</a></li>
+                <li class="relative">
+                    <button class="fas fa-bars text-2xl cursor-pointer text-white focus:outline-none" id="dropdownButton"></button>
+                    <ul class="absolute right-0 mt-2 w-64 bg-white text-black rounded-lg shadow-lg hidden" id="dropdownMenu">
+                        <li class="px-4 py-2 border-b border-gray-200">
+                            <a class="text-green-600 font-semibold block p-2 rounded transition-all duration-200" href="{{ url_for('ai_engine_page') }}">
+                                Disease Prediction and Fertilizer Suggestion
+                            </a>
+                        </li>
+                        <li class="px-4 py-2 border-b border-gray-200">
+                            <a class="text-green-600 font-semibold block p-2 rounded transition-all duration-200" href="crop-recommendation.html">
+                                Crop Recommendation
+                            </a>
+                        </li>
+                        <li class="px-4 py-2 border-b border-gray-200">
+                            <a class="text-green-600 font-semibold block p-2 rounded transition-all duration-200" href="weather-prediction.html">
+                                Weather Prediction
+                            </a>
+                        </li>
+                        <li class="px-4 py-2 border-b border-gray-200">
+                            <a class="text-green-600 font-semibold block p-2 rounded transition-all duration-200" href="crop-rate-prediction.html">
+                                Crop Rate Prediction
+                            </a>
+                        </li>
+                        <li class="px-4 py-2 border-b border-gray-200">
+                            <a class="text-green-600 font-semibold block p-2 rounded transition-all duration-200" href="news-about-agriculture.html">
+                                News About Agriculture
+                            </a>
+                        </li>
+                        <li class="px-4 py-2">
+                            <a class="text-green-600 font-semibold block p-2 rounded transition-all duration-200" href="schemes-in-agriculture.html">
+                                Schemes in Agriculture
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="home min-h-screen w-full flex flex-col items-center justify-center text-center bg-cover bg-center relative" style="background-image: url('../static/uploads/hom.jpg');">
+        <h1 class="banner text-white text-5xl md:text-6xl font-bold shadow-lg">AGRIPLANNER</h1>
+        <h2 class="slogan text-white text-2xl md:text-3xl font-light mt-4">User-Centric Farm Management System</h2>
+        <a href="#"><button class="mt-6 py-2 px-8 bg-white text-black text-xl rounded-lg shadow-lg hover:bg-green-600 hover:text-white transition-all duration-200">get started</button></a>
+    </section>
+
+    <section id="about" class="about min-h-screen w-full text-center py-16">
+        <h1 class="heading text-4xl text-green-600 underline mb-8">About Agriplanner</h1>
+        <div class="row flex flex-col md:flex-row items-center justify-around px-4">
+            <div class="content text-left p-4 md:w-1/2">
+                <h2 class="text-3xl text-green-600 mb-4">Agriplanner Farm and Planning</h2>
+                <p class="text-lg text-black mb-4">The Agriplanner is a user-friendly farm management system that centralizes essential information to boost agricultural efficiency. It enhances decision-making, productivity, collaboration, and promotes sustainable practices in farming.</p>
+                <a href="#"><button class="btn py-2 px-8 bg-green-600 text-white text-lg rounded-full shadow-lg hover:opacity-80 transition-all duration-200">read more</button></a>
+            </div>
+            <div class="images md:w-1/2">
+                <img src="{{ url_for('static', filename='uploads/about.png') }}" alt="Illustration of farm management system interface" class="w-full rounded-lg">
+            </div>
+        </div>
+    </section>
+
+    <section id="Vision" class="service w-full text-center py-16">
+        <h1 class="heading text-4xl text-green-600 underline mb-8">Agriplanner Vision & Mission</h1>
+        <div class="row flex flex-col md:flex-row items-center justify-around px-4 mb-8">
+            <div class="images md:w-1/2">
+                <img src="{{ url_for('static', filename='uploads/plant-1.png') }}" alt="Illustration of a vision for sustainable farming" class="w-full rounded-lg">
+            </div>
+            <div class="content text-left p-4 md:w-1/2">
+                <h2 class="text-3xl text-green-600 mb-4">Vision</h2>
+                <p class="text-lg text-black mb-4">The aim is to offer farmers and agricultural stakeholders a comprehensive, user-friendly platform that enhances farm management efficiency, promotes sustainability, and fosters innovation in agriculture.
+                </p>
+                <a href="#"><button class="btn py-2 px-8 bg-green-600 text-white text-lg rounded-full shadow-lg hover:opacity-80 transition-all duration-200">read more</button></a>
+            </div>
+        </div>
+        <div class="row flex flex-col md:flex-row-reverse items-center justify-around px-4">
+            <div class="images md:w-1/2">
+                <img src="{{ url_for('static', filename='uploads/plant-2.png') }}" alt="Illustration of a mission for enhancing agricultural growth" class="w-full rounded-lg">
+            </div>
+            <div class="content text-left p-4 md:w-1/2">
+                <h2 class="text-3xl text-green-600 mb-4">Mission</h2>
+                <p class="text-lg text-black mb-4">The objective is to develop and maintain Agriplanner, a farm management system designed to improve operations, facilitate decision-making, and enhance communication, all while fostering agricultural growth and sustainability.</p>
+                <a href="#"><button class="btn py-2 px-8 bg-green-600 text-white text-lg rounded-full shadow-lg hover:opacity-80 transition-all duration-200">read more</button></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team w-full text-center py-16 bg-green-600">
+        <h1 class="heading text-4xl text-white underline mb-8">our team</h1>
+        <div class="row flex flex-wrap items-center justify-center">
+            <div class="card bg-white text-center m-4 p-4 rounded-lg shadow-lg w-64">
+                <div class="images mb-4">
+                    <img src="{{ url_for('static', filename='uploads/img-.jpg') }}" alt="Portrait of a professional forester" class="w-full h-60 object-cover rounded-lg border-4 border-white shadow-lg">
+                </div>
+                <div class="info">
+                    <h2 class="text-2xl text-green-600 mb-2">person name</h2>
+                    <div class="icons flex justify-center space-x-4">
+                        <a href="#" class="fab fa-facebook-f text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                        <a href="#" class="fab fa-twitter text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                        <a href="#" class="fab fa-instagram text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-white text-center m-4 p-4 rounded-lg shadow-lg w-64">
+                <div class="images mb-4">
+                    <img src="{{ url_for('static', filename='uploads/img-.jpg') }}" alt="Portrait of a professional forester" class="w-full h-60 object-cover rounded-lg border-4 border-white shadow-lg">
+                </div>
+                <div class="info">
+                    <h2 class="text-2xl text-green-600 mb-2">person name</h2>
+            
+                    <div class="icons flex justify-center space-x-4">
+                        <a href="#" class="fab fa-facebook-f text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                        <a href="#" class="fab fa-twitter text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                        <a href="#" class="fab fa-instagram text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-white text-center m-4 p-4 rounded-lg shadow-lg w-64">
+                <div class="images mb-4">
+                    <img src="{{ url_for('static', filename='uploads/img-.jpg') }}" alt="Portrait of a professional forester" class="w-full h-60 object-cover rounded-lg border-4 border-white shadow-lg">
+                </div>
+                <div class="info">
+                    <h2 class="text-2xl text-green-600 mb-2">person name</h2>
+                    
+                    <div class="icons flex justify-center space-x-4">
+                        <a href="#" class="fab fa-facebook-f text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                        <a href="#" class="fab fa-twitter text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                        <a href="#" class="fab fa-instagram text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-white text-center m-4 p-4 rounded-lg shadow-lg w-64">
+                <div class="images mb-4">
+                    <img src="{{ url_for('static', filename='uploads/img-.jpg') }}" alt="Portrait of a professional forester" class="w-full h-60 object-cover rounded-lg border-4 border-white shadow-lg">
+                </div>
+                <div class="info">
+                    <h2 class="text-2xl text-green-600 mb-2">person name</h2>
+                    
+                    <div class="icons flex justify-center space-x-4">
+                        <a href="#" class="fab fa-facebook-f text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                        <a href="#" class="fab fa-twitter text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                        <a href="#" class="fab fa-instagram text-2xl text-black hover:text-green-600 transition-all duration-200"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact w-full text-center py-16">
+        <h1 class="heading text-4xl text-green-600 underline mb-8">contact us</h1>
+        <div class="row flex flex-col md:flex-row items-center justify-center px-4">
+            <div class="images md:w-1/2 mb-8 md:mb-0">
+                <img src="{{ url_for('static', filename='uploads/contact.jpg') }}" alt="Illustration of contact and communication" class="w-full rounded-lg">
+            </div>
+            <div class="form-container md:w-1/2 text-left p-4">
+                <form action="">
+                    <div class="inputbox flex justify-between mb-4">
+                        <input type="text" placeholder="first Name" class="w-1/2 mr-2 p-2 rounded-lg shadow-lg" />
+                        <input type="text" placeholder="last Name" class="w-1/2 ml-2 p-2 rounded-lg shadow-lg" />
+                    </div>
+                    <input type="email" placeholder="enter your email" class="w-full mb-4 p-2 rounded-lg shadow-lg" />
+                    <textarea placeholder="message" class="w-full mb-4 p-2 rounded-lg shadow-lg" rows="5"></textarea>
+                    <input type="submit" value="send" class="py-2 px-8 bg-green-600 text-white text-lg rounded-full shadow-lg hover:opacity-80 transition-all duration-200 cursor-pointer" />
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer w-full flex flex-col md:flex-row items-center justify-around p-8 bg-green-600">
+        <h1 class="text-2xl text-white font-light mb-4 md:mb-0">AGRIPLANNER</h1>
+        <div class="icons flex space-x-4">
+            <a href="#" class="fab fa-facebook-f text-2xl text-white hover:text-gray-300 transition-all duration-200"></a>
+            <a href="#" class="fab fa-twitter text-2xl text-white hover:text-gray-300 transition-all duration-200"></a>
+            <a href="#" class="fab fa-instagram text-2xl text-white hover:text-gray-300 transition-all duration-200"></a>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.fa-bars, .menu-icon').click(function () {
+                $(this).toggleClass('fa-time');
+                $('.navbar').toggleClass('nav-toggle');
+            });
+
+            $(window).on('load scroll', function () {
+                $('.fa-bars').removeClass('fa-time');
+                $('.navbar').removeClass('nav-toggle');
+
+                if ($(window).scrollTop() > 30) {
+                    $('.header').css({ 'background': '#65b741', 'box-shadow': '0 .3rem .5rem rgba(0, 0, 0, .3)' });
+                } else {
+                    $('.header').css({ 'background': 'none', 'box-shadow': 'none' });
+                }
+            });
+
+            $('.subject-header').click(function () {
+                $('.subject .subject-body').slideUp();
+                $(this).next('.subject-body').slideDown();
+                $('.subject .subject-header span').text('+');
+                $(this).children('span').text('-');
+            });
+
+            $('#dropdownButton').click(function () {
+                $('#dropdownMenu').toggle();
+            });
+        });
+    </script>
+</body>
+
+</html>
